@@ -2,6 +2,8 @@
 
 nombre=$1
 
+read -p "Indique un usuario: " nombre
+
 if [ -z "$nombre" ]
 then
         echo "Debe especificar un nombre"
