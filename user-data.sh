@@ -6,7 +6,7 @@ read -p "Indique un usuario: " nombre
 
 if [ -z "$nombre" ]
 then
-        echo "Debe especificar un nombre"
+        echo "Debe especificar un usuario"
         exit 1
 fi
 
@@ -25,7 +25,7 @@ then
         echo "Shell: $shell"
 
 else
-	echo "$nombre no existe"
+	echo "El usuario $nombre no existe"
         exit 1
 
 
