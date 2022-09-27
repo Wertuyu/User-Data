@@ -1,8 +1,10 @@
 #!/bin/bash
 
 nombre=$1
-
-read -p "Indique un usuario: " nombre
+if [ -z "$nombre" ]
+then
+        read -p "Indique un usuario: " nombre
+fi
 
 if [ -z "$nombre" ]
 then
@@ -12,7 +14,7 @@ fi
 
 if id "$nombre" >/dev/null 2>&1; 
 then
-	user=$(grep -w $nombre /etc/passwd | cut -d ':' -f 1)
+        user=$(grep -w $nombre /etc/passwd | cut -d ':' -f 1)
         id1=$(grep -w $nombre /etc/passwd | cut -d ':' -f 3)
         id2=$(grep -w $nombre /etc/passwd | cut -d ':' -f 4)
         home=$(grep -w $nombre /etc/passwd | cut -d ':' -f 6)
@@ -25,7 +27,7 @@ then
         echo "Shell: $shell"
 
 else
-	echo "El usuario $nombre no existe"
+        echo "El usuario $nombre no existe"
         exit 1
 
 
